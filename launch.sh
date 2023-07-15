@@ -12,10 +12,11 @@ echo $(date) startLaunch
 export W=/work/dc007/dc007
 prefix=/beegfs/common_crawl/CC-MAIN-
 year=$1
-segment=$2
+start_seg=$2
 suffix=/orig/warc/
 files_per_task=$3
 start_file_num=$4
-srun -c $SLURM_CPUS_PER_TASK $W/shared/qk/longitudinal-study/script.sh $prefix $year $segment $suffix $files_per_task $start_file_num
+num_of_seg=$5
+srun -c $SLURM_CPUS_PER_TASK $W/shared/qk/longitudinal-study/script.sh $prefix $year $start_seg $suffix $files_per_task $start_file_num $num_of_seg
 echo $(date) endLaunch
 
